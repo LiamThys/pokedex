@@ -13,11 +13,7 @@ import SearchIcon from './icons/IconSearch.vue'
 
 <style scoped>
 .search {
-  margin-top: 2rem;
   display: flex;
-
-  display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 7px 8px;
   gap: 6px;

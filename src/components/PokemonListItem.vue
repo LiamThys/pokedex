@@ -52,15 +52,12 @@ export default {
 
 <style scoped>
 .item {
-  background: var(--color-background-mute);
+  background: var(--color-background);
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
 
   display: flex;
   align-items: center;
-
-  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
-  border-radius: 10px;
 
   margin-bottom: 10px;
 }
@@ -77,7 +74,7 @@ export default {
 }
 
 .card-types > p {
-  margin-top: -12px;
+  margin-top: -16px;
   margin-left: 4px;
 
   padding: 0 6px;
@@ -118,6 +115,9 @@ h4 {
 }
 
 .arrowIcon {
+  margin-top: -16px;
+  margin-left: 4px;
+
   display: flex;
   place-items: center;
   place-content: center;
