@@ -15,13 +15,15 @@ Additionally they want this app to:
 - Uses some open source packages (don’t reinvent the wheel), but be able to explain why.
 
 ## UI
-The design of the app can be found here ([click through](https://www.figma.com/file/QeWa9FEHrAO6lqa5V6pQ8K/Sollicitatie-test?node-id=2%3A23) as there are multiple pages, such as one with designs for large screens): 
+
+The design of the app can be found here ([click through](https://www.figma.com/file/QeWa9FEHrAO6lqa5V6pQ8K/Sollicitatie-test?node-id=2%3A23) as there are multiple pages, such as one with designs for large screens):
 
 There should be a **normal** design and a **nice to have** version with some more features.
 
 You should try to implement the provided design, while also making sure the app works well and is built well. You may need to “translate” some parts of the design to more native/relevant components as needed, use your best judgement for this. For example, the “Sort on” sheet could be implemented as a UIMenu on iOS.
 
 ## Network
+
 A custom API is provided, based on the official [PokéAPI](https://pokeapi.co/), although with some differences. An OpenAPI documentation can be found [here](https://appwise-be.stoplight.io/docs/pokemon/52335a540da77-front-end).
 
 Most importantly, use these calls:
