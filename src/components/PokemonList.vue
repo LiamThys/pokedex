@@ -33,6 +33,23 @@ export default {
     })
       .then((response) => response.data)
       .then((data) => (this.pokemonList = data))
+  },
+  methods: {
+    getPokemon(id: number) {
+      return this.$router.push({ name: 'pokemon', params: { id: id } })
+    },
+    formatNumber(value: string): string {
+      switch (value.toString().length) {
+        case 1:
+          return 'Nr. 00' + value
+        case 2:
+          return 'Nr. 0' + value
+        case 3:
+          return 'Nr. ' + value
+        default:
+          return 'Missing Nr.'
+      }
+    }
   }
 }
 </script>
@@ -45,9 +62,10 @@ export default {
     :imageAlt="pokemon.name"
     :type1="pokemon.types[0].type.name"
     :type2="pokemon.types[1]?.type.name"
+    @click="getPokemon(pokemon.id)"
   >
     <template #name>{{ pokemon.name }}</template>
-    <template #id>Nr. 00{{ pokemon.id }}</template>
+    <template #id>{{ formatNumber(pokemon.id) }}</template>
     <template #type2>{{ pokemon.types[1]?.type.name }}</template>
     <template #type1>{{ pokemon.types[0].type.name }}</template>
   </PokemonListItem>
