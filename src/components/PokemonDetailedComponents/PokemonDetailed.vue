@@ -3,6 +3,7 @@ import PokemonAbout from './PokemonAbout.vue'
 import PokemonStats from './PokemonStats.vue'
 import PokemonMoveSet from './PokemonMoveSet.vue'
 import IconFavorite from '@/components/icons/IconFavorite.vue'
+import IconFavoriteFill from '@/components/icons/IconFavoriteFill.vue'
 import axios from 'axios'
 </script>
 
@@ -11,11 +12,17 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      pokemonDetailed: null as any
+      pokemonDetailed: null as any,
+      isFavorite: false,
+      isTeam: false
     }
   },
   beforeMount() {
     this.fetchData()
+  },
+  updated() {
+    this.isFavorite = this.isAdded('favorites')
+    this.isTeam = this.isAdded('team')
   },
   methods: {
     fetchData() {
@@ -29,18 +36,47 @@ export default {
     addPokemonToList(listType: string) {
       const currentList: any[] = JSON.parse(sessionStorage.getItem(`${listType}Storage`)!)
 
-      if (currentList.filter((e) => e.id === this.pokemonDetailed.id).length < 1) {
-        currentList.push({
-          id: this.pokemonDetailed.id,
-          sprites: {
-            front_default: this.pokemonDetailed.sprites.other['official-artwork'].front_default
-          },
-          name: this.pokemonDetailed.name,
-          types: this.pokemonDetailed.types
-        })
+      if (listType === 'favorites' || (listType === 'team' && currentList.length < 6)) {
+        if (currentList.filter((e) => e.id === this.pokemonDetailed.id).length < 1) {
+          currentList.push({
+            id: this.pokemonDetailed.id,
+            sprites: {
+              front_default: this.pokemonDetailed.sprites.other['official-artwork'].front_default
+            },
+            name: this.pokemonDetailed.name,
+            types: this.pokemonDetailed.types
+          })
+
+          // workaround non reactivity for sessionStorage
+          if (listType === 'favorites') {
+            this.isFavorite = true
+          } else {
+            this.isTeam = true
+          }
+        }
+      }
+      sessionStorage.setItem(`${listType}Storage`, JSON.stringify(currentList))
+    },
+    removePokemonFromList(listType: string) {
+      const currentList: any[] = JSON.parse(sessionStorage.getItem(`${listType}Storage`)!)
+
+      currentList.splice(
+        currentList.find((e) => e.id === this.pokemonDetailed.id),
+        1
+      )
+
+      // workaround non reactivity for sessionStorage
+      if (listType === 'favorites') {
+        this.isFavorite = false
+      } else {
+        this.isTeam = false
       }
 
       sessionStorage.setItem(`${listType}Storage`, JSON.stringify(currentList))
+    },
+    isAdded(listType: string) {
+      const currentList: any[] = JSON.parse(sessionStorage.getItem(`${listType}Storage`)!)
+      return currentList.some((e) => e.id === this.pokemonDetailed.id)
     }
   }
 }
@@ -48,8 +84,17 @@ export default {
 
 <template>
   <div class="greetings" v-if="pokemonDetailed">
-    <IconFavorite class="favoriteButton" @click="addPokemonToList('favorites')" />
-    <h1 class="green">{{ pokemonDetailed.name }}</h1>
+    <IconFavorite
+      class="favoriteButton"
+      v-show="!isFavorite"
+      @click="addPokemonToList('favorites')"
+    />
+    <IconFavoriteFill
+      class="favoriteButton"
+      v-show="isFavorite"
+      @click="removePokemonFromList('favorites')"
+    />
+    <h1 class="green" @click="isAdded('favorites')">{{ pokemonDetailed.name }}</h1>
     <img :src="pokemonDetailed.sprites.other['official-artwork'].front_default" />
     <h2>about</h2>
     <PokemonAbout
@@ -64,7 +109,12 @@ export default {
     <h2>moveset</h2>
     <PokemonMoveSet :moves="pokemonDetailed.moves" />
     <h2>evolutie</h2>
-    <button class="teamButton" @click="addPokemonToList('team')">Toevoegen aan mijn team</button>
+    <button class="teamButton" v-show="!isTeam" @click="addPokemonToList('team')">
+      Toevoegen aan mijn team
+    </button>
+    <button class="teamButton" v-show="isTeam" @click="removePokemonFromList('team')">
+      Verwijderen van mijn team
+    </button>
   </div>
 </template>
 
