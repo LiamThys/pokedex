@@ -4,21 +4,6 @@ import axios from 'axios'
 </script>
 
 <script lang="ts">
-// interface Pokemon {
-//   id: number
-//   name: string
-//   sprites: {
-//     front_default: string
-//   }
-//   types: [
-//     {
-//       type: {
-//         name: string
-//       }
-//     }
-//   ]
-// }
-
 export default {
   name: 'get-pokemon-list',
   data() {
