@@ -1,5 +1,7 @@
 # pokedex
 
+run locally: npm run dev
+
 ## Description
 
 The client has always been a big fan of the original 151 Pokémon, and would like to have an app that can serve as their Pokédex. They’d like to browse through the Pokemon, search, manage their favourites, and more.
