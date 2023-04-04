@@ -115,9 +115,6 @@ h4 {
 }
 
 .arrowIcon {
-  margin-top: -16px;
-  margin-left: 4px;
-
   display: flex;
   place-items: center;
   place-content: center;

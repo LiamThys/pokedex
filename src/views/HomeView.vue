@@ -2,7 +2,7 @@
 import PokemonSearch from '@/components/PokemonSearch.vue'
 import PokemonList from '@/components/PokemonList.vue'
 import MainTitle from '@/components/MainTitle.vue'
-import PersonalPokemonList from '@/components/PersonalPokemonList.vue'
+import PokemonListCard from '@/components/PokemonListCard.vue'
 
 import { RouterLink } from 'vue-router'
 </script>
@@ -12,11 +12,9 @@ import { RouterLink } from 'vue-router'
     <MainTitle msg="Pokédex" />
     <PokemonSearch />
     <nav>
-      <RouterLink to="/team"
-        ><PersonalPokemonList listName="Mijn team" listType="team"
-      /></RouterLink>
-      <RouterLink to="/favorites"
-        ><PersonalPokemonList listName="Favorieten" listType="favorites"
+      <RouterLink to="/team"> <PokemonListCard listName="Mijn team" listType="team" /></RouterLink>
+      <RouterLink to="/favorites">
+        <PokemonListCard listName="Favorieten" listType="favorites"
       /></RouterLink>
     </nav>
     <PokemonList />

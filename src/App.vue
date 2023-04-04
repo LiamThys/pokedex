@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { useSessionStorage } from '@vueuse/core'
+import { RouterView } from 'vue-router'
+
+useSessionStorage('favoritesStorage', [])
+useSessionStorage('teamStorage', [])
 </script>
 
 <template>

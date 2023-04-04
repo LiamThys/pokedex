@@ -1,16 +1,32 @@
 <script setup lang="ts">
 import IconPokeball from './icons/IconPokeball.vue'
+</script>
 
-defineProps<{
-  listName: string
-  listType: string
-}>()
+<script lang="ts">
+export default {
+  props: {
+    listName: String,
+    listType: String
+  },
+  methods: {
+    getListTotal(list: String): number {
+      switch (list) {
+        case 'team':
+          return JSON.parse(sessionStorage.getItem('teamStorage')!).length
+        case 'favorites':
+          return JSON.parse(sessionStorage.getItem('favoritesStorage')!).length
+        default:
+          return 0
+      }
+    }
+  }
+}
 </script>
 
 <template>
   <div class="item" :style="{ background: `var(--gradient-${listType})` }">
     <h2>{{ listName }}</h2>
-    <h3>4 pokemon</h3>
+    <h3>{{ getListTotal(listType as String) }} Pokémon</h3>
     <i>
       <IconPokeball />
     </i>
