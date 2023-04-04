@@ -2,12 +2,24 @@
 import SearchIcon from './icons/IconSearch.vue'
 </script>
 
+<script lang="ts">
+export default {
+  props: ['searchValue'],
+  emits: ['update:searchValue']
+}
+</script>
+
 <template>
   <div class="search">
     <i>
       <SearchIcon />
     </i>
-    <input type="text" placeholder="Pokémon zoeken" />
+    <input
+      type="text"
+      :value="searchValue"
+      @input="$emit('update:searchValue', ($event.target as HTMLInputElement).value)"
+      placeholder="Pokémon zoeken"
+    />
   </div>
 </template>
 

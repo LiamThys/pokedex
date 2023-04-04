@@ -7,17 +7,28 @@ import PokemonListCard from '@/components/PokemonListCard.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
+<script lang="ts">
+export default {
+  components: { PokemonList },
+  data() {
+    return {
+      searchValue: ''
+    }
+  }
+}
+</script>
+
 <template>
   <main>
     <MainTitle msg="Pokédex" />
-    <PokemonSearch />
+    <PokemonSearch v-model:searchValue="searchValue" />
     <nav>
       <RouterLink to="/team"> <PokemonListCard listName="Mijn team" listType="team" /></RouterLink>
       <RouterLink to="/favorites">
         <PokemonListCard listName="Favorieten" listType="favorites"
       /></RouterLink>
     </nav>
-    <PokemonList />
+    <PokemonList :searchValue="searchValue" />
   </main>
 </template>
 
