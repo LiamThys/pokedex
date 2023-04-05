@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IconMale from '@/components/icons/IconMale.vue'
 import IconFemale from '@/components/icons/IconFemale.vue'
+import { formatNumberToPokemonNr } from '@/utils/utils'
 </script>
 
 <script lang="ts">
@@ -30,18 +31,6 @@ export default {
   methods: {
     formatValue(value: unknown): number {
       return parseFloat(value as string) / 10
-    },
-    formatNumber(value: string): string {
-      switch (value.toString().length) {
-        case 1:
-          return 'Nr. 00' + value
-        case 2:
-          return 'Nr. 0' + value
-        case 3:
-          return 'Nr. ' + value
-        default:
-          return 'Missing Nr.'
-      }
     }
   }
 }
@@ -61,7 +50,7 @@ export default {
       </tr>
       <tr>
         <td>Nummer</td>
-        <td>{{ formatNumber(number as string) }}</td>
+        <td>{{ formatNumberToPokemonNr(number as string) }}</td>
       </tr>
       <tr>
         <td>Hoogte</td>

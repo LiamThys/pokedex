@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PokemonListItem from './PokemonListItem.vue'
 import axios from 'axios'
+import { formatNumberToPokemonNr } from '@/utils/utils'
 </script>
 
 <script lang="ts">
@@ -36,18 +37,6 @@ export default {
     getPokemon(id: number) {
       this.$router.push({ name: 'pokemon', params: { id: id } })
     },
-    formatNumber(value: string): string {
-      switch (value.toString().length) {
-        case 1:
-          return 'Nr. 00' + value
-        case 2:
-          return 'Nr. 0' + value
-        case 3:
-          return 'Nr. ' + value
-        default:
-          return 'Missing Nr.'
-      }
-    },
     sortedListOnSearch() {
       if (!this.searchValue) {
         this.pokemonList = this.copyPokemonList
@@ -77,7 +66,7 @@ export default {
     @click="getPokemon(pokemon.id)"
   >
     <template #name>{{ pokemon.name }}</template>
-    <template #id>{{ formatNumber(pokemon.id) }}</template>
+    <template #id>{{ formatNumberToPokemonNr(pokemon.id) }}</template>
     <template #type2>{{ pokemon.types[1]?.type.name }}</template>
     <template #type1>{{ pokemon.types[0].type.name }}</template>
   </PokemonListItem>
