@@ -1,12 +1,18 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
+<script lang="ts">
+export default {
+  props: {
+    msg: String,
+    textColor: {
+      type: String,
+      default: 'white'
+    }
+  }
+}
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 :style="{ color: textColor }">{{ msg }}</h1>
   </div>
 </template>
 
@@ -26,9 +32,7 @@ h1 {
 
   letter-spacing: 0.374px;
 
-  /* Dark 1 */
-
-  color: var(--color-heading);
+  color: white;
 
   margin: 0.5em 0.2em;
 }

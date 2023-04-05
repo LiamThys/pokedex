@@ -5,6 +5,12 @@ import MainTitle from '@/components/MainTitle.vue'
 import PokemonListCard from '@/components/PokemonListCard.vue'
 
 import { RouterLink } from 'vue-router'
+
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  document.body.classList.remove(...document.body.classList)
+})
 </script>
 
 <script lang="ts">
@@ -12,7 +18,8 @@ export default {
   components: { PokemonList },
   data() {
     return {
-      searchValue: ''
+      searchValue: '',
+      titleColor: 'black'
     }
   }
 }
@@ -20,7 +27,7 @@ export default {
 
 <template>
   <main>
-    <MainTitle msg="Pokédex" />
+    <MainTitle msg="Pokédex" :text-color="titleColor" />
     <PokemonSearch v-model:searchValue="searchValue" />
     <nav>
       <RouterLink to="/team"> <PokemonListCard listName="Mijn team" listType="team" /></RouterLink>
