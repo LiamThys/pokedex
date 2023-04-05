@@ -40,6 +40,8 @@ export default {
   /* Purple Gradient */
 
   border-radius: 10px;
+
+  overflow: hidden;
 }
 
 h2 {
