@@ -7,6 +7,12 @@ import PokemonMoveSet from './PokemonMoveSet.vue'
 import IconFavorite from '@/components/icons/IconFavorite.vue'
 import IconFavoriteFill from '@/components/icons/IconFavoriteFill.vue'
 import axios from 'axios'
+
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  document.body.classList.remove(...document.body.classList)
+})
 </script>
 
 <script lang="ts">
@@ -25,6 +31,7 @@ export default {
   updated() {
     this.isFavorite = this.isAdded('favorites')
     this.isTeam = this.isAdded('team')
+    document.body.classList.add(this.pokemonDetailed.types[0].type.name)
   },
   methods: {
     fetchData() {
@@ -188,5 +195,59 @@ img {
   max-width: 100%;
   width: auto;
   height: auto;
+}
+</style>
+
+<style>
+.grass {
+  background: linear-gradient(180deg, var(--type-grass) 0%, #89e2b3 100%);
+}
+.fire {
+  background: linear-gradient(180deg, var(--type-fire) 0%, #dbb469 100%);
+}
+.water {
+  background: linear-gradient(180deg, var(--type-water) 0%, #456dc3 100%);
+}
+.poison {
+  background: linear-gradient(180deg, var(--type-poison) 0%, #a47ec8 100%);
+}
+.normal {
+  background: linear-gradient(180deg, var(--type-normal) 0%, rgb(83, 83, 83) 100%);
+}
+.ghost {
+  background: linear-gradient(180deg, var(--type-ghost) 0%, #9862a3 100%);
+}
+.psychic {
+  background: linear-gradient(180deg, var(--type-psychic) 0%, #f3667e 100%);
+}
+.fairy {
+  background: linear-gradient(180deg, var(--type-fairy) 0%, #fdb9c2 100%);
+}
+.ground {
+  background: linear-gradient(180deg, var(--type-ground) 0%, #dd9755 100%);
+}
+.flying {
+  background: linear-gradient(180deg, var(--type-flying) 0%, #a888ff 100%);
+}
+.bug {
+  background: linear-gradient(180deg, var(--type-bug) 0%, #bb9722 100%);
+}
+.electric {
+  background: linear-gradient(180deg, var(--type-electric) 0%, #ffad33 100%);
+}
+.fighting {
+  background: linear-gradient(180deg, var(--type-fighting) 0%, #bb445e 100%);
+}
+.rock {
+  background: linear-gradient(180deg, var(--type-rock) 0%, #bb8866 100%);
+}
+.steel {
+  background: linear-gradient(180deg, var(--type-steel) 0%, #7786b8 100%);
+}
+.ice {
+  background: linear-gradient(180deg, var(--type-ice) 0%, #668aff 100%);
+}
+.dragon {
+  background: linear-gradient(180deg, var(--type-dragon) 0%, #b166ee 100%);
 }
 </style>
