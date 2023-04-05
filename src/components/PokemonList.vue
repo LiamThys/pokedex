@@ -56,6 +56,11 @@ export default {
 </script>
 
 <template>
+  <p v-if="pokemonList.length <= 0">
+    Pokemon not found<br />
+    <br />
+    Try something like 133 or 'pika'
+  </p>
   <PokemonListItem
     v-for="pokemon in pokemonList"
     :key="pokemon.id"
@@ -71,3 +76,20 @@ export default {
     <template #type1>{{ pokemon.types[0].type.name }}</template>
   </PokemonListItem>
 </template>
+
+<style scoped>
+p {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 1em;
+  text-align: center;
+
+  color: rgba(235, 235, 235, 0.64);
+
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.374px;
+}
+</style>
