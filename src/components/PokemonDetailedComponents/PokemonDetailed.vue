@@ -93,7 +93,7 @@ export default {
 </script>
 
 <template>
-  <div class="greetings" v-if="pokemonDetailed">
+  <div class="item" v-if="pokemonDetailed">
     <IconFavorite
       class="favoriteButton"
       v-show="!isFavorite"
@@ -109,7 +109,7 @@ export default {
     <div class="imgParent">
       <img :src="pokemonDetailed.sprites.other['official-artwork'].front_default" />
     </div>
-    <h2>about</h2>
+    <h2>ABOUT</h2>
     <PokemonAbout
       :type="pokemonDetailed.types"
       :number="pokemonDetailed.id"
@@ -117,14 +117,14 @@ export default {
       :weight="pokemonDetailed.weight"
       :ability="pokemonDetailed.abilities[0].ability.name"
     />
-    <h2>statistieken</h2>
+    <h2>STATISTIEKEN</h2>
     <PokemonStats
       :base_experience="pokemonDetailed.base_experience"
       :stats="pokemonDetailed.stats"
     />
-    <h2>moveset</h2>
+    <h2>MOVESET</h2>
     <PokemonMoveSet :moves="pokemonDetailed.moves" />
-    <h2>evolutie</h2>
+    <h2>EVOLUTIE</h2>
     <PokemonEvolutions :id="pokemonDetailed.id" />
     <button class="teamButton" v-show="!isTeam" @click="addPokemonToList('team')">
       Toevoegen aan mijn team
@@ -136,6 +136,9 @@ export default {
 </template>
 
 <style scoped>
+.item {
+  cursor: default;
+}
 .teamButton {
   position: -webkit-sticky;
   position: sticky;
@@ -158,6 +161,8 @@ export default {
   letter-spacing: -0.408px;
 
   color: #ffffff;
+
+  cursor: pointer;
 }
 
 .favoriteButton {
@@ -167,6 +172,8 @@ export default {
   height: 32px;
   width: 32px;
   pointer-events: all;
+
+  cursor: pointer;
 }
 
 .imgParent {
