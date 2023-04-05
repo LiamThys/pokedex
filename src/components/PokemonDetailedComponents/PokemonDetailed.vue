@@ -4,6 +4,7 @@ import HeaderBack from '@/components/HeaderBack.vue'
 import PokemonAbout from './PokemonAbout.vue'
 import PokemonStats from './PokemonStats.vue'
 import PokemonMoveSet from './PokemonMoveSet.vue'
+import PokemonEvolutions from './PokemonEvolutions.vue'
 import IconFavorite from '@/components/icons/IconFavorite.vue'
 import IconFavoriteFill from '@/components/icons/IconFavoriteFill.vue'
 import axios from 'axios'
@@ -119,6 +120,7 @@ export default {
     <h2>moveset</h2>
     <PokemonMoveSet :moves="pokemonDetailed.moves" />
     <h2>evolutie</h2>
+    <PokemonEvolutions :id="pokemonDetailed.id" />
     <button class="teamButton" v-show="!isTeam" @click="addPokemonToList('team')">
       Toevoegen aan mijn team
     </button>
