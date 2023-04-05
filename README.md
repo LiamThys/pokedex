@@ -1,6 +1,6 @@
 # pokedex
 
-Deployed at: https://liamthys.github.io/pokedex/
+Deployed at: <https://liamthys.github.io/pokedex/>
 
 run locally: npm run dev
 
@@ -32,9 +32,9 @@ A custom API is provided, based on the official [PokéAPI](https://pokeapi.co/),
 
 Most importantly, use these calls:
 
-List of Pokémon: https://stoplight.io/mocks/appwise-be/pokemon/57519009/pokemon
+List of Pokémon: <https://stoplight.io/mocks/appwise-be/pokemon/57519009/pokemon>
 
-Details of a Pokémon: https://pokeapi.co/api/v2/pokemon/133 (replace 133 by ID of your item)
+Details of a Pokémon: <https://pokeapi.co/api/v2/pokemon/133> (replace 133 by ID of your item)
 
 **NOTE**: do NOT embed the list JSON into your project, it must be fetched via network.
 
