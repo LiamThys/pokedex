@@ -23,6 +23,6 @@ onMounted(() => {
 
 <style>
 .favorites {
-  background: linear-gradient(109.73deg, #65cb9a 0%, #15d0dc 100%);
+  background: var(--gradient-favorites);
 }
 </style>

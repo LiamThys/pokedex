@@ -23,6 +23,6 @@ onMounted(() => {
 
 <style>
 .team {
-  background: linear-gradient(109.73deg, #46469c 0%, #7e32e0 100%);
+  background: var(--gradient-team);
 }
 </style>

@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       searchValue: '',
-      titleColor: 'black'
+      titleColor: 'var(--color-heading)'
     }
   }
 }
