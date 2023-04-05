@@ -53,10 +53,10 @@ export default {
       <tr>
         <td>Type</td>
         <td class="card-types">
-          <p :style="{ background: `var(--type-${type[0].type.name})` }">{{ type[0].type.name }}</p>
           <p v-if="type[1]" :style="{ background: `var(--type-${type[1].type.name})` }">
             {{ type[1].type.name }}
           </p>
+          <p :style="{ background: `var(--type-${type[0].type.name})` }">{{ type[0].type.name }}</p>
         </td>
       </tr>
       <tr>
