@@ -112,7 +112,7 @@ export default {
       :imageAlt="pokemon.name"
       :type1="pokemon.types[0].type.name"
       :type2="pokemon.types[1]?.type.name"
-      @click="getPokemon(pokemon.id)"
+      :show-arrow="false"
     >
       <template #name>{{ pokemon.name }}</template>
       <template #id>{{ formatNumber(pokemon.id) }}</template>

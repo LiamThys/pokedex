@@ -20,6 +20,10 @@ export default {
     type2: {
       type: String,
       required: false
+    },
+    showArrow: {
+      type: Boolean,
+      default: true
     }
   }
 }
@@ -44,7 +48,7 @@ export default {
         <slot name="type1"></slot>
       </p>
     </div>
-    <i class="arrowIcon">
+    <i v-if="showArrow" class="arrowIcon">
       <ArrowIcon />
     </i>
   </div>
