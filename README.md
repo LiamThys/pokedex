@@ -1,5 +1,7 @@
 # pokedex
 
+Deployed at: https://liamthys.github.io/pokedex/
+
 run locally: npm run dev
 
 ## Description
