@@ -5,16 +5,22 @@ import SearchIcon from './icons/IconSearch.vue'
 <script lang="ts">
 export default {
   props: ['searchValue'],
-  emits: ['update:searchValue']
+  emits: ['update:searchValue'],
+  methods: {
+    focusInput() {
+      ;(this.$refs.searchInput as HTMLInputElement).focus()
+    }
+  }
 }
 </script>
 
 <template>
-  <div class="search">
+  <div class="search" @click="focusInput">
     <i>
       <SearchIcon />
     </i>
     <input
+      ref="searchInput"
       type="text"
       :value="searchValue"
       @input="$emit('update:searchValue', ($event.target as HTMLInputElement).value)"
@@ -40,9 +46,8 @@ input {
 
   /* ✏️ Placeholder */
 
-  width: 305.37px;
-  height: 22px;
-
+  width: 100%;
+  height: 100%;
   /* Default/Regular/Body */
 
   font-family: 'SF Pro Text';
