@@ -3,7 +3,7 @@ import ArrowIcon from '@/components/icons/IconArrowForward.vue'
 </script>
 
 <template>
-  <div @click="$router.go(-1)" class="back">
+  <div @click="$router.go(-1)">
     <ArrowIcon class="arrow" />
     <p>Terug</p>
   </div>
@@ -27,10 +27,5 @@ div {
   margin-right: 0.5em;
   width: 2em;
   height: 2em;
-}
-
-.back {
-  display: flex;
-  align-items: center;
 }
 </style>
