@@ -106,7 +106,9 @@ export default {
     />
     <HeaderBack />
     <MainTitle :msg="pokemonDetailed.name" />
-    <img :src="pokemonDetailed.sprites.other['official-artwork'].front_default" />
+    <div class="imgParent">
+      <img :src="pokemonDetailed.sprites.other['official-artwork'].front_default" />
+    </div>
     <h2>about</h2>
     <PokemonAbout
       :type="pokemonDetailed.types"
@@ -165,6 +167,10 @@ export default {
   height: 32px;
   width: 32px;
   pointer-events: all;
+}
+
+.imgParent {
+  text-align: center;
 }
 
 h1 {
