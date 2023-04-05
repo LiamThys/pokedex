@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     getPokemon(id: number) {
-      return this.$router.push({ name: 'pokemon', params: { id: id } })
+      this.$router.push({ name: 'pokemon', params: { id: id } })
     },
     formatNumber(value: string): string {
       switch (value.toString().length) {
