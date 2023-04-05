@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MainTitle from '@/components/MainTitle.vue'
+import HeaderBack from '@/components/HeaderBack.vue'
 import PokemonAbout from './PokemonAbout.vue'
 import PokemonStats from './PokemonStats.vue'
 import PokemonMoveSet from './PokemonMoveSet.vue'
@@ -94,7 +96,8 @@ export default {
       v-show="isFavorite"
       @click="removePokemonFromList('favorites')"
     />
-    <h1 class="green" @click="isAdded('favorites')">{{ pokemonDetailed.name }}</h1>
+    <HeaderBack />
+    <MainTitle :msg="pokemonDetailed.name" />
     <img :src="pokemonDetailed.sprites.other['official-artwork'].front_default" />
     <h2>about</h2>
     <PokemonAbout
@@ -146,8 +149,8 @@ export default {
   display: flex;
   float: right;
 
-  height: auto;
-  width: 48px;
+  height: 32px;
+  width: 32px;
   pointer-events: all;
 }
 

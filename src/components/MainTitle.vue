@@ -29,6 +29,12 @@ h1 {
   /* Dark 1 */
 
   color: var(--color-heading);
+
+  margin: 0.5em 0.2em;
+}
+
+.greetings {
+  max-width: fit-content;
 }
 
 .greetings h1 {
