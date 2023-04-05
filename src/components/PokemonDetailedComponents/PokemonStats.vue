@@ -1,8 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { capitalize } from 'vue'
+</script>
 
 <script lang="ts">
 export default {
   props: {
+    base_experience: {
+      type: Number,
+      required: true
+    },
     stats: {
       type: [Object],
       required: true
@@ -10,10 +16,21 @@ export default {
   },
   methods: {
     getProgressValue(value: number): string {
-      return (value / 90) * 100 + '%'
+      const tmp = (value / this.base_experience) * 100
+      return tmp > 100 ? '100%' : (value / this.base_experience) * 100 + '%'
     },
     getProgressColor(value: number): string {
-      return value < 50 ? 'rgba(223, 101, 99, 1)' : 'rgba(112, 193, 143, 1)'
+      return value < this.base_experience ? 'rgba(223, 101, 99, 1)' : 'rgba(112, 193, 143, 1)'
+    },
+    shorten(string: string) {
+      switch (string) {
+        case 'Special-attack':
+          return 'Sp. Atk'
+        case 'Special-defense':
+          return 'Sp. Def'
+        default:
+          return string
+      }
     }
   }
 }
@@ -23,7 +40,7 @@ export default {
   <div class="item">
     <table>
       <tr v-for="stat in stats" :key="stat.name">
-        <td>{{ stat.stat.name }}</td>
+        <td>{{ shorten(capitalize(stat.stat.name)) }}</td>
         <td>{{ stat.base_stat }}</td>
         <td>
           <div class="progressParent">
@@ -31,6 +48,21 @@ export default {
               :style="{
                 width: getProgressValue(stat.base_stat),
                 background: getProgressColor(stat.base_stat)
+              }"
+              class="progressBar"
+            ></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{{ base_experience }}</td>
+        <td>
+          <div class="progressParent">
+            <div
+              :style="{
+                width: getProgressValue(base_experience),
+                background: getProgressColor(base_experience)
               }"
               class="progressBar"
             ></div>
@@ -97,7 +129,7 @@ td:first-child {
 
   color: #acb2c1;
 
-  padding-right: 0.2em;
+  padding-right: 1em;
 }
 
 td:nth-child(2) {

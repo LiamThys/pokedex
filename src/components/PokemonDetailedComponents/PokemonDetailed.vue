@@ -116,7 +116,10 @@ export default {
       :ability="pokemonDetailed.abilities[0].ability.name"
     />
     <h2>statistieken</h2>
-    <PokemonStats :stats="pokemonDetailed.stats" />
+    <PokemonStats
+      :base_experience="pokemonDetailed.base_experience"
+      :stats="pokemonDetailed.stats"
+    />
     <h2>moveset</h2>
     <PokemonMoveSet :moves="pokemonDetailed.moves" />
     <h2>evolutie</h2>
