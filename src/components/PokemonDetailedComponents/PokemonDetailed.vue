@@ -135,6 +135,7 @@ export default {
 
 <style scoped>
 .teamButton {
+  position: -webkit-sticky;
   position: sticky;
 
   width: 100%;
@@ -200,6 +201,8 @@ img {
   max-width: 100%;
   width: auto;
   height: auto;
+
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1));
 }
 </style>
 
