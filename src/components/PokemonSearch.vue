@@ -70,7 +70,7 @@ i {
   width: 32px;
   height: 32px;
 
-  color: var(--color-icon);
+  color: var(--vt-c-icon-light-1);
 }
 
 @media (min-width: 1024px) {

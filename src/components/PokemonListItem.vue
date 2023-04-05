@@ -52,12 +52,13 @@ export default {
 
 <style scoped>
 .item {
-  background: var(--color-background);
-  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
+  background: var(--color-background-soft);
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
   display: flex;
   align-items: center;
+  padding: 0.5em 1em;
 
   margin-bottom: 10px;
 }

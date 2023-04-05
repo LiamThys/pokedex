@@ -1,11 +1,11 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: rgba(249, 249, 249, 1);
-  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-soft: #f8f8f85d;
   --vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #1f2029;
-  --vt-c-black-soft: #222222;
+  --vt-c-black: #1f1f1f; /* #43444d*/
+  --vt-c-black-soft: #2c2c2c5d;
   --vt-c-black-mute: #282828;
 
   --vt-c-indigo: #2c3e50;
@@ -21,6 +21,7 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
   --vt-c-icon-light-1: rgba(60, 60, 67, 0.6);
+  --vt-c-icon-dark-1: rgba(235, 235, 235, 0.6);
 
   --type-water: rgba(69, 146, 195, 1);
   --type-grass: rgba(149, 194, 77, 1);
@@ -73,7 +74,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
 
-    --color-icon: var(--vt-c-icon-light-1);
+    --color-icon: var(--vt-c-icon-dark-1);
   }
 }
 
