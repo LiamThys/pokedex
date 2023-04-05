@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <div class="item">
+  <div class="stats">
     <table>
       <tr v-for="stat in stats" :key="stat.name">
         <td>{{ shorten(capitalize(stat.stat.name)) }}</td>
@@ -78,43 +78,18 @@ export default {
   height: 4px;
   background: rgba(172, 178, 193, 0.2);
   width: 100%;
+  border-radius: 25px;
 }
 
 .progressBar {
   height: 4px;
 }
 
-.item {
+.stats {
   background: #ffffff;
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
   padding: 1rem;
-}
-
-.card-types {
-  display: flex;
-}
-
-.card-types > p {
-  margin-top: 2px;
-  margin-right: 4px;
-
-  padding: 2px 10px;
-
-  border-radius: 100px;
-
-  font-family: 'SF Pro Display';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.374px;
-
-  color: #ffffff;
-}
-
-table {
-  white-space: nowrap;
 }
 
 td:first-child {
@@ -143,7 +118,6 @@ td:nth-child(2) {
   letter-spacing: -0.408px;
 
   /* Dark 1 */
-
   color: #1f2029;
 }
 

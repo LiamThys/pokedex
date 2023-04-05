@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <div class="item">
+  <div class="about">
     <table>
       <tr>
         <td>Type</td>
@@ -78,7 +78,7 @@ export default {
 </template>
 
 <style scoped>
-.item {
+.about {
   background: #ffffff;
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
   border-radius: 10px;

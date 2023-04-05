@@ -142,7 +142,4 @@ img {
   margin-right: 20px;
   flex-shrink: 0;
 }
-
-@media (min-width: 1024px) {
-}
 </style>

@@ -93,7 +93,7 @@ export default {
 </script>
 
 <template>
-  <div class="item" v-if="pokemonDetailed">
+  <div v-if="pokemonDetailed">
     <IconFavorite
       class="favoriteButton"
       v-show="!isFavorite"
@@ -109,23 +109,33 @@ export default {
     <div class="imgParent">
       <img :src="pokemonDetailed.sprites.other['official-artwork'].front_default" />
     </div>
-    <h2>ABOUT</h2>
-    <PokemonAbout
-      :type="pokemonDetailed.types"
-      :number="pokemonDetailed.id"
-      :height="pokemonDetailed.height"
-      :weight="pokemonDetailed.weight"
-      :ability="pokemonDetailed.abilities[0].ability.name"
-    />
-    <h2>STATISTIEKEN</h2>
-    <PokemonStats
-      :base_experience="pokemonDetailed.base_experience"
-      :stats="pokemonDetailed.stats"
-    />
-    <h2>MOVESET</h2>
-    <PokemonMoveSet :moves="pokemonDetailed.moves" />
-    <h2>EVOLUTIE</h2>
-    <PokemonEvolutions :id="pokemonDetailed.id" />
+    <div class="item">
+      <div class="grid-item">
+        <h2>ABOUT</h2>
+        <PokemonAbout
+          :type="pokemonDetailed.types"
+          :number="pokemonDetailed.id"
+          :height="pokemonDetailed.height"
+          :weight="pokemonDetailed.weight"
+          :ability="pokemonDetailed.abilities[0].ability.name"
+        />
+      </div>
+      <div class="grid-item">
+        <h2>STATISTIEKEN</h2>
+        <PokemonStats
+          :base_experience="pokemonDetailed.base_experience"
+          :stats="pokemonDetailed.stats"
+        />
+      </div>
+      <div class="grid-item">
+        <h2>MOVESET</h2>
+        <PokemonMoveSet :moves="pokemonDetailed.moves" />
+      </div>
+      <div class="grid-item">
+        <h2>EVOLUTIE</h2>
+        <PokemonEvolutions :id="pokemonDetailed.id" />
+      </div>
+    </div>
     <button class="teamButton" v-show="!isTeam" @click="addPokemonToList('team')">
       Toevoegen aan mijn team
     </button>
@@ -215,7 +225,17 @@ img {
   width: auto;
   height: auto;
 
-  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1));
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgb(0, 0, 0));
+}
+
+@media (min-width: 1024px) {
+  .item {
+    display: grid;
+
+    grid-template-columns: auto auto;
+
+    gap: 4em 2em;
+  }
 }
 </style>
 
