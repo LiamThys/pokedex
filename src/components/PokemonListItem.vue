@@ -65,6 +65,8 @@ export default {
   padding: 0.5em 1em;
 
   margin-bottom: 10px;
+
+  text-transform: capitalize;
 }
 
 .card-header {
@@ -82,7 +84,7 @@ export default {
   margin-top: -16px;
   margin-left: 4px;
 
-  padding: 0 6px;
+  padding: 2px 6px;
 
   border-radius: 100px;
 
@@ -96,6 +98,7 @@ export default {
   color: #ffffff;
 
   text-align: center;
+  text-transform: capitalize;
 }
 
 h3 {

@@ -83,6 +83,8 @@ export default {
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
   border-radius: 10px;
   padding: 1rem;
+
+  text-transform: capitalize;
 }
 
 .card-types {

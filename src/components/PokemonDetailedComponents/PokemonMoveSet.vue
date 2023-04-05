@@ -31,6 +31,8 @@ export default {
   grid-template-columns: auto auto;
   row-gap: 1em;
   justify-content: space-evenly;
+
+  text-transform: capitalize;
 }
 
 .grid-item {
