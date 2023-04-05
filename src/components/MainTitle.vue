@@ -36,6 +36,8 @@ h1 {
   margin: 0.5em 0.2em;
 
   text-transform: capitalize;
+
+  cursor: default;
 }
 
 .greetings {

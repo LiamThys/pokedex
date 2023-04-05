@@ -16,6 +16,10 @@ div {
   letter-spacing: -0.408px;
 
   color: #ffffff;
+
+  cursor: pointer;
+
+  width: max-content;
 }
 
 .arrow {

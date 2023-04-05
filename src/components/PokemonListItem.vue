@@ -69,6 +69,10 @@ export default {
   text-transform: capitalize;
 }
 
+.item:hover {
+  cursor: pointer;
+}
+
 .card-header {
   display: flex;
   flex-direction: column;
